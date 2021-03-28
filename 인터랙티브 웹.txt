@@ -1,0 +1,78 @@
+인터랙티브 웹
+
+1.마우스를 활용한 인터랙티브
+window.onload:
+ 화면이 다 로드가 된 후 실행
+
+window.addEventListener("mousemove", mouseFunc, false);
+
+            function mouseFunc(e){
+                
+            x = (e.clientX-window.innerWidth/2);
+            y = (e.clientY-window.innerHeight/2);
+                
+            }
+            loop();
+        }
+
+
+마우스가 움직이면 mouseFunc의 함수가 작동됨
+
+position:absolute 원래 위치와 상관없이 위치 지정 가능. 상위 요소가 없으면 위치는 html기준을 설정됨
+position:relative 원래 위치부터 계산 . 위,아래,옆의 위치를 같이 설정 가능
+
+cursor: none 을 통해 커서를 없앨 수 있다!
+
+부드러운 움직임/ transform, translate
+
+function loop(){
+cursor_item.style.transform = "translate("+ ~~~
+window.requestAnimationFrame(loop); loop를 계속 실행시킴
+
+}
+그러나 loop만으로는 부드러운 움직임을 줄 수 없음
+
+
+function loop(){
+    mx += (x-mx) * speed
+    my += (y-my) * speed (speed를 통해 마우스 속도 조절 가능)
+cursor_item.style.transform = "translate("+ ~~~
+window.requestAnimationFrame(loop); loop를 계속 실행시킴
+}
+
+-> 웹서비스보다는 모션쪽에서 많이 쓰임
+
+가속도(easing)
+
+
+transition: all 1s ease-in-out
+
+멀리 움직일수록 가속도 올라감
+1s는 1초동안이라는 뜻
+
+ease-in-out/ cubic-beizer
+
+ceaser라는 웹페이지를 통해 
+transition을 어떻게 적용할 지 구현하면 됨
+
+transition: all 1s ease-in-out 이 한줄이 유용하게 쓰일 수 있음
+ex) 커서가 박스를 클릭하면 커진다던가~~~
+
+2-1. fix nothing
+
+
+
+
+
+2-2.bird
+
+
+
+
+3.mouse over UI 구현
+마우스를 따라다니는 css는 .cursorItem
+마우스가 커졌다 작아졌다 .cursorItem.circle
+
+.cursorItem의  mix-blend-mode: multiply;를 사용하여 셀로판지 느낌을 줄 수 있음
+
+네/아니요 부분은 css
